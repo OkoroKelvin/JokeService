@@ -2,8 +2,10 @@ package com.transition.jokemysql.data.outputDto;
 
 import com.transition.jokemysql.data.inputDto.ApiFieldError;
 import com.transition.jokemysql.data.model.UserAccount;
+import lombok.Data;
 
 import java.util.Date;
+@Data
 
 public class LoginResponseDTO extends  StandardResponseDto{
 
@@ -57,59 +59,4 @@ public class LoginResponseDTO extends  StandardResponseDto{
         this.status = status;
     }
 
-    public String getToken() {
-        return token;
-    }
-
-    public void setToken(String token) {
-        this.token = token;
-    }
-
-    public UserAccount getUser() {
-        return user;
-    }
-
-    public void setUser(UserAccount user) {
-        this.user = user;
-    }
-
-    public String getExpiresIn() {
-        return expiresIn;
-    }
-
-    public void setExpiresIn(String expiresIn) {
-        this.expiresIn = expiresIn;
-    }
-
-    public Integer getLocalId() {
-        return localId;
-    }
-
-    public void setLocalId(Integer localId) {
-        this.localId = localId;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Date getExpiresInDate() {
-        return expiresInDate;
-    }
-
-    public void setExpiresInDate(Date expiresInDate) {
-        this.expiresInDate = expiresInDate;
-    }
 }

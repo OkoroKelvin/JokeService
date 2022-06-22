@@ -2,9 +2,11 @@ package com.transition.jokemysql.data.outputDto;
 
 import com.transition.jokemysql.data.inputDto.ApiFieldError;
 import com.transition.jokemysql.data.inputDto.PageInfo;
+import lombok.Data;
 
 import java.util.ArrayList;
 import java.util.List;
+@Data
 
 public class JokeCompositeResponseDto extends StandardResponseDto{
     private JokeComposite jokeWithComment;
@@ -43,22 +45,6 @@ public class JokeCompositeResponseDto extends StandardResponseDto{
 
     public JokeCompositeResponseDto(List<JokeComposite> jokeWithComments, Status status) {
         super(status);
-        this.jokeWithComments = jokeWithComments;
-    }
-
-    public JokeComposite getJokeWithComment() {
-        return jokeWithComment;
-    }
-
-    public void setJokeWithComment(JokeComposite jokeWithComment) {
-        this.jokeWithComment = jokeWithComment;
-    }
-
-    public List<JokeComposite> getJokeWithComments() {
-        return jokeWithComments;
-    }
-
-    public void setJokeWithComments(List<JokeComposite> jokeWithComments) {
         this.jokeWithComments = jokeWithComments;
     }
 }

@@ -3,9 +3,10 @@ package com.transition.jokemysql.data.outputDto;
 import com.transition.jokemysql.data.inputDto.ApiFieldError;
 import com.transition.jokemysql.data.inputDto.PageInfo;
 import com.transition.jokemysql.data.model.Joke;
+import lombok.Data;
 
 import java.util.List;
-
+@Data
 public class JokeResponseDto extends StandardResponseDto{
     private List<Joke> jokes;
     private Joke joke;
@@ -42,22 +43,5 @@ public class JokeResponseDto extends StandardResponseDto{
     public JokeResponseDto(List<Joke> jokes, Status status) {
         super(status);
         this.jokes = jokes;
-    }
-
-
-    public List<Joke> getJokes() {
-        return jokes;
-    }
-
-    public void setJokes(List<Joke> jokes) {
-        this.jokes = jokes;
-    }
-
-    public Joke getJoke() {
-        return joke;
-    }
-
-    public void setJoke(Joke joke) {
-        this.joke = joke;
     }
 }
