@@ -11,6 +11,7 @@ import org.junit.jupiter.api.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -18,6 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 @Slf4j
+@Transactional
 class JokeServiceTest {
 
     @Autowired
@@ -254,4 +256,15 @@ class JokeServiceTest {
         assertEquals(joke.getJoke().getUserId().getId(),1);
         assertEquals(joke.getJoke().getContent(),"The comic king is here");
     }
+
+    @Test
+    void testThatUserCanGetItsCreatedJoke(){
+        JokeResponseDto joke = userService.createJoke(1,"The comic king is here");
+        assertEquals(joke.getJoke().getUserId().getId(),1);
+        assertEquals(joke.getJoke().getContent(),"The comic king is here");
+        JokeResponseDto foundJoke = userService.findAllJokesCreatedByAUser(1);
+        assertEquals(foundJoke.getJokes().size(),1);
+    }
+
+
 }
