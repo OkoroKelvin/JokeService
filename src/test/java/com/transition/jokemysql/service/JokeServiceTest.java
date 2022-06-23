@@ -204,10 +204,10 @@ class JokeServiceTest {
     @DisplayName("Test that user can be created")
     void testThatUserCanBeCreated(){
         UserAccountInputDto inputDto = new UserAccountInputDto();
-        inputDto.setFirstName("Kelvin");
-        inputDto.setLastName("Okoro");
+        inputDto.setFirstName("Newton");
+        inputDto.setLastName("Faraday");
         inputDto.setEmail("okorokelvinemoakpo@yahoo.com");
-        inputDto.setPassword("kel12345");
+        inputDto.setPassword("1234");
       Response message =  userService.createUserAccount(inputDto);
         assertEquals(message.getReport(),"Successfully created");
     }
@@ -249,9 +249,9 @@ class JokeServiceTest {
 //        assertEquals("Comic politics",savedJoke.getJoke().getContent());
 //    }
     @Test
-    void testThatUserCanSeeItsCreatedJoke(){
-        JokeResponseDto allJokes = userService.findAllJokesCreatedByAUser(1);
-        assertEquals(allJokes.getJokes().size(),1);
-
+    void testThatUserCanCreateJoke(){
+        JokeResponseDto joke = userService.createJoke(1,"The comic king is here");
+        assertEquals(joke.getJoke().getUserId().getId(),1);
+        assertEquals(joke.getJoke().getContent(),"The comic king is here");
     }
 }
